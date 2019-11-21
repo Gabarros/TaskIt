@@ -1,9 +1,14 @@
 const express = require('express');
 const routes = require('./routes');
-const db = require('./config/db');
+const mongoose = require('mongoose');
 
 const app = express();
 
+mongoose.connect('mongodb+srv://desenvolvedor:desenvolvimento123@cluster0-gedzb.mongodb.net/taskit?retryWrites=true&w=majority',
+{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 app.use(express.json());
 app.use(routes);
